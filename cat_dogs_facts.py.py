@@ -51,6 +51,8 @@ def display_image_cats(website_url, parameters):
 
 numberOfFacts = int(input("Podaj liczbę faktów do wyświetlenia: "))
 
+animalType = IntEnum("animalType", "Kot Pies")
+
 choice = int(
     input(
         """ Chcę fakty o:
@@ -60,12 +62,12 @@ choice = int(
 """
     )
 )
-if choice == 1:
+if choice == animalType.Kot:
     parameters = change_parameters_facts("cat", numberOfFacts)
     display_facts("https://cat-fact.herokuapp.com/facts/random/", parameters)
     display_image_cats("https://api.thecatapi.com/v1/images/search", "beng")
 
-elif choice == 2:
+elif choice == animalType.Pies:
     parameters = change_parameters_facts("dog", numberOfFacts)
     display_facts("https://cat-fact.herokuapp.com/facts/random/", parameters)
     display_image_dogs("https://dog.ceo/api/breeds/image/random")
